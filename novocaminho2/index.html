@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ONG Novo Caminho — Fortalecendo Famílias</title>
+  <meta name="description" content="ONG Novo Caminho: apoio social e educacional para famílias em vulnerabilidade. Doe, seja voluntário ou conheça nossos projetos." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="index.html" class="logo-link" aria-label="Página inicial da ONG Novo Caminho">
+        <img src="assets/img/logo.webp" alt="ONG Novo Caminho" class="logo" />
+      </a>
+      
+      <nav role="navigation" aria-label="Menu principal">
+        <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navList">
+          <span class="hamburger-icon" aria-hidden="true"></span>
+        </button>
+        
+        <ul class="nav-list" id="navList">
+          <li><a href="index.html" aria-current="page">Início</a></li>
+          
+          <li class="dropdown">
+            <a href="projetos.html" aria-haspopup="true" aria-expanded="false">Projetos</a>
+            <ul class="submenu" aria-label="Submenu Projetos">
+              <li><a href="projetos.html#proj1-title">Raízes do Amanhã</a></li>
+              <li><a href="projetos.html#proj2-title">Capacita Família</a></li>
+              <li><a href="projetos.html#proj3-title">Acolher Legal</a></li>
+            </ul>
+          </li>
+          
+          <li><a href="cadastro.html">Cadastro</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </nav>
+      </div>
+  </header>
+  <main id="main" class="container" role="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-texto">
+        <h1 id="hero-title">ONG Novo Caminho</h1>
+        <p>Promovendo apoio social e educação para famílias em vulnerabilidade — juntos, ajudamos famílias a recomeçar.</p>
+        <p class="hero-botoes"><a class="btn" href="projetos.html">Conheça nossos projetos</a> <a class="btn outline" href="cadastro.html">Quero ajudar</a></p>
+      </div>
+      <img src="assets/img/hero.jpg" alt="Voluntários e famílias em atividade comunitária" loading="lazy" />
+    </section>
+
+    <section aria-labelledby="sobre-title" class="sobre grid-12">
+      <div class="col-span-full col-md-span-8">
+        <h2 id="sobre-title">Nossa missão</h2>
+        <p>A missão da ONG Novo Caminho é fortalecer a autonomia de famílias em vulnerabilidade por meio de apoio material, educação e capacitação, criando possibilities reais de transformação social.</p>
+        <ul>
+          <li>Missão: Fortalecer famílias com ações sociais e educacionais.</li>
+          <li>Visão: Comunidades mais autônomas e com oportunidades reais.</li>
+          <li>Valores: Dignidade, transparência, solidariedade e educação.</li>
+        </ul>
+      </div>
+      <div class="col-span-full col-md-span-4">
+        <h5>Categorias</h5>
+        <p>
+          <span class="badge badge-primary">Educação</span>
+          <span class="badge badge-secondary">Social</span>
+          <span class="badge badge-success">Capacitação</span>
+        </p>
+      </div>
+    </section>
+
+    <section aria-labelledby="impacto-title" class="impacto">
+      <h2 id="impacto-title">O que fazemos</h2>
+      <p>Apoiamos famílias com cestas básicas, cursos de capacitação, reforço escolar, orientação profissional e acompanhamento familiar.</p>
+      <dl>
+        <dt>Famílias atendidas</dt><dd>— Familia da Lulu e Isaque</dd>
+        
+      </dl>
+    </section>
+
+    <section aria-labelledby="transparencia-title" class="transparencia" id="transparencia">
+      <h2 id="transparencia-title">Transparência</h2>
+      <div class="alert alert-success">
+        Aqui voce fica de olho em nossos relatorios
+      </div>
+      <p>Publicamos relatórios de prestação de contas e resultados dos projetos para doadores e comunidade.</p>
+      <ul>
+        <li><a href="docs/relatorio_transparencia.pdf">Relatório anual (PDF)</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <address id="contato">
+        <strong>ONG Novo Caminho</strong><br />
+        Endereço: Rua alegria — Cidade esperança — Felicidade<br />
+        Telefone: <a href="tel:+550000000000">(+55) 00 00000-0000</a><br />
+        E-mail: <a href="mailto:contato@novocaminho.org">contato@novocaminho.org</a>
+      </address>
+
+      <nav aria-label="Redes sociais">
+        <ul class="social-list">
+          <li><a href="#" aria-label="Instagram">Instagram</a></li>
+          <li><a href="#" aria-label="Facebook">Facebook</a></li>
+        </ul>
+      </nav>
+
+      <p class="copyright">© <span id="ano"></span> ONG Novo Caminho — Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Script do ano no rodapé
+    const anoEl = document.getElementById('ano');
+    if(anoEl) {
+      anoEl.textContent = new Date().getFullYear();
+    }
+    
+    // --- NOVO: Script do Menu Hambúrguer ---
+    const navToggle = document.querySelector('.nav-toggle');
+    const navList = document.getElementById('navList');
+    if (navToggle && navList) {
+        navToggle.addEventListener('click', () => {
+            const isOpen = navList.classList.toggle('is-open');
+            navToggle.setAttribute('aria-expanded', isOpen);
+            navToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+        });
+    }
+  </script>
+</body>
+</html>

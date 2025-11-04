@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cadastro — ONG Novo Caminho</title>
+  <meta name="description" content="Formulário de cadastro para famílias, voluntários e doadores da ONG Novo Caminho." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="index.html" class="logo-link" aria-label="Página inicial da ONG Novo Caminho">
+        <img src="assets/img/logo.webp" alt="ONG Novo Caminho" class="logo" />
+      </a>
+      
+      <nav role="navigation" aria-label="Menu principal">
+        <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navList">
+          <span class="hamburger-icon" aria-hidden="true"></span>
+        </button>
+        
+        <ul class="nav-list" id="navList">
+          <li><a href="index.html">Início</a></li>
+          
+          <li class="dropdown">
+            <a href="projetos.html" aria-haspopup="true" aria-expanded="false">Projetos</a>
+            <ul class="submenu" aria-label="Submenu Projetos">
+              <li><a href="projetos.html#proj1-title">Raízes do Amanhã</a></li>
+              <li><a href="projetos.html#proj2-title">Capacita Família</a></li>
+              <li><a href="projetos.html#proj3-title">Acolher Legal</a></li>
+            </ul>
+          </li>
+          
+          <li><a href="cadastro.html" aria-current="page">Cadastro</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </nav>
+      </div>
+  </header>
+  <main id="main" class="container" role="main">
+  
+    <div class="alert alert-info" role="alert">
+      <strong>Aviso:</strong> Preencha os campos obrigatórios (*) com atenção.
+    </div>
+
+    <div class="grid-12">
+      <div class="col-span-full col-md-span-8"> <h1>Cadastro — Família / Voluntário / Doador</h1>
+        <p>O cadastro permite que a ONG acompanhe as necessidades da família e convide para projetos.</p>
+
+        <form id="cadastroForm" action="#" method="post" novalidate>
+          <fieldset>
+            <legend>Dados pessoais</legend>
+
+            <label for="nome" class="full-width">Nome completo <span aria-hidden="true">*</span>
+              <input id="nome" name="nome" type="text" required minlength="3" maxlength="100" placeholder="Nome completo" />
+            </label>
+
+            <label for="email" class="full-width">E-mail <span aria-hidden="true">*</span>
+              <input id="email" name="email" type="email" required placeholder="seu@email.com" />
+            </label>
+
+            <label for="cpf">CPF <span aria-hidden="true">*</span>
+              <input id="cpf" name="cpf" type="text" inputmode="numeric" autocomplete="off" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="000.000.000-00" />
+            </label>
+
+            <label for="telefone">Telefone
+              <input id="telefone" name="telefone" type="tel" inputmode="tel" placeholder="(00) 00000-0000" />
+            </label>
+
+            <label for="nascimento">Data de nascimento
+              <input id="nascimento" name="nascimento" type="date" max="" />
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Endereço e família</legend>
+
+            <label for="cep">CEP
+              <input id="cep" name="cep" type="text" inputmode="numeric" placeholder="00000-000" />
+            </label>
+            
+            <div class="full-width"></div> <label for="endereco" class="full-width">Endereço
+              <input id="endereco" name="endereco" type="text" placeholder="Rua, número, complemento" />
+            </label>
+
+            <label for="cidade">Cidade
+              <input id="cidade" name="cidade" type="text" />
+            </label>
+
+            <label for="estado">Estado
+              <select id="estado" name="estado" required> <option value="">Selecione</option>
+                <option>SP</option>
+                <option>RJ</option>
+                <option>MG</option>
+                </select>
+            </label>
+
+            <label for="familia_membros" class="full-width">Número de membros na família
+              <input id="familia_membros" name="familia_membros" type="number" min="1" max="30" />
+            </label>
+          </fieldset>
+
+          <fieldset class="full-width">
+            <legend>Interesses e necessidades</legend>
+
+            <div class="checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="interesse" value="voluntariado" /> Quero ser voluntário
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="interesse" value="doacoes" /> Tenho interesse em doar
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="interesse" value="receber_ajuda" /> Quero receber apoio (cestas, kits, acompanhamento)
+              </label>
+            </div>
+
+            <label for="mensagem" class="full-width">Mensagem / Observações
+              <textarea id="mensagem" name="mensagem" rows="5" maxlength="800" placeholder="Conte-nos a sua situação ou necessidades"></textarea>
+            </label>
+          </fieldset>
+
+          <div class="form-actions full-width">
+            <button type="submit" class="btn">Enviar cadastro</button>
+            <button type="reset" class="btn outline">Limpar</button>
+            <button type="button" class="btn" disabled>Botão Desabilitado</button> </div>
+
+          <p class="obs full-width"><small>Ao enviar, você concorda com a nossa <a href="#" id="openPrivacyModal">política de privacidade</a> e com o uso dos dados para fins de atendimento social.</small></p>
+        </form>
+        
+      </div>
+    </div> </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <address id="contato">
+        <strong>ONG Novo Caminho</strong><br />
+        Endereço: Rua alegria — Cidade esperança — Felicidade<br />
+        Telefone: <a href="tel:+550000000000">(+55) 00 00000-0000</a><br />
+        E-mail: <a href="mailto:contato@novocaminho.org">contato@novocaminho.org</a>
+      </address>
+
+      <nav aria-label="Redes sociais">
+        <ul class="social-list">
+          <li><a href="#" aria-label="Instagram">Instagram</a></li>
+          <li><a href="#" aria-label="Facebook">Facebook</a></li>
+        </ul>
+      </nav>
+
+      <p class="copyright">© <span id="ano"></span> ONG Novo Caminho — Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="meuModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" style="display: none;">
+      <div class="modal">
+          <header class="modal-header">
+              <h2 id="modalTitle">Política de Privacidade</h2>
+              <button class="modal-close-btn" aria-label="Fechar modal">&times;</button>
+          </header>
+          <div class="modal-body">
+              <p>Aqui entra o texto da política de privacidade. Usamos seus dados apenas para fins de atendimento social.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu te.</p>
+          </div>
+          <footer class="modal-footer">
+              <button class="btn modal-close-btn">Entendi</button>
+          </footer>
+      </div>
+  </div>
+
+
+  <script src="assets/js/masks.js"></script>
+  
+  <script>
+    // Define max date de nascimento como hoje
+    const nascimento = document.getElementById('nascimento');
+    if (nascimento) {
+      const hoje = new Date();
+      const anoMax = hoje.toISOString().split('T')[0];
+      nascimento.setAttribute('max', anoMax);
+    }
+
+    // Validação de formulário
+    const form = document.getElementById('cadastroForm');
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        if (!form.checkValidity()) {
+          e.preventDefault();
+          // Foca no primeiro campo inválido para acessibilidade
+          const firstInvalidField = form.querySelector(':invalid');
+          if (firstInvalidField) {
+            firstInvalidField.focus();
+          }
+        } else {
+          e.preventDefault();
+          alert('Cadastro recebido! (Em demonstração; implemente envio real ao backend.)');
+          form.reset();
+        }
+      }, false);
+    }
+    
+    // Script do ano no rodapé
+    const anoEl = document.getElementById('ano');
+    if(anoEl) {
+      anoEl.textContent = new Date().getFullYear();
+    }
+    
+    // --- NOVO: Script do Menu Hambúrguer ---
+    const navToggle = document.querySelector('.nav-toggle');
+    const navList = document.getElementById('navList');
+    if (navToggle && navList) {
+        navToggle.addEventListener('click', () => {
+            const isOpen = navList.classList.toggle('is-open');
+            navToggle.setAttribute('aria-expanded', isOpen);
+            navToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+        });
+    }
+    
+    // --- NOVO: Script do Modal ---
+    const modal = document.getElementById('meuModal');
+    const openModalLink = document.getElementById('openPrivacyModal');
+    const closeButtons = document.querySelectorAll('.modal-close-btn');
+
+    const openModal = () => {
+        if(modal) modal.style.display = 'flex';
+    };
+    const closeModal = () => {
+        if(modal) modal.style.display = 'none';
+    };
+    
+    if (openModalLink) {
+        openModalLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal();
+        });
+    }
+    closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+           if (e.target === modal) { // Fecha só se clicar no overlay
+             closeModal();
+           }
+        });
+    }
+
+  </script>
+</body>
+</html>
