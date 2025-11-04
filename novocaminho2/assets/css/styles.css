@@ -1,0 +1,916 @@
+/* Importação da fonte */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* ===============================================
+1. SISTEMA DE DESIGN (ESPECIFICAÇÃO)
+===============================================
+*/
+:root{
+  /* 1.1 Paleta de Cores (Light Mode - Padrão) */
+  --primary: #0b6fa4;
+  --primary-dark: #085a87;
+  --secondary: #6c757d;
+  --success: #198754;
+  --danger: #dc3545;
+  --warning: #ffc107;
+  
+  /* Cores de Texto e Fundo (Light) */
+  --text: #212529;
+  --text-muted: #6c757d;
+  --bg: #ffffff;
+  --surface: #f8f9fa;
+  --border-color: #dee2e6;
+  
+  /* Cores de Alerta (Light) - Contraste Corrigido */
+  --info-text: #055160;
+  --info-bg: #cff4fc;
+  --info-border: #b6effb;
+  
+  --success-text: #0f5132; /* CORRIGIDO: Era #198754 (Contraste 3.0:1) */
+  --success-bg: #d1e7dd;
+  --success-border: #badbcc;
+
+  --danger-text: #842029; /* CORRIGIDO: Era #dc3545 (Contraste 2.4:1) */
+  --danger-bg: #f8d7da;
+  --danger-border: #f5c2c7;
+  
+  --warning-text: #664d03;
+  --warning-bg: #fff3cd;
+  --warning-border: #ffecb5;
+
+  /* 1.2 Tipografia */
+  --font-size-base: 1rem;
+  --font-size-h1: 2.5rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.5rem;
+  --font-size-h4: 1.25rem;
+  --font-size-h5: 1.1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-lg: 1.15rem;
+  
+  /* 1.3 Sistema de Espaçamento Modular */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 2.5rem;
+  --space-6: 3rem;
+  --space-8: 4rem;
+
+  /* Outras variáveis globais */
+  --radius: 8px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.07);
+  --shadow-md: 0 4px 10px rgba(0,0,0,0.08);
+  --container: min(1140px, 94%);
+  --transition-fast: all 0.2s ease-in-out;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  height: 100%;
+}
+
+body{
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: var(--font-size-base);
+  transition: background-color 0.2s, color 0.2s; /* Transição suave p/ modo escuro */
+}
+
+.container{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: var(--space-2);
+}
+
+/* Tipografia (Implementação da Hierarquia) */
+h1, h2, h3, h4, h5 {
+  margin: 0 0 var(--space-2);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text); /* Garante que títulos também mudem no modo escuro */
+}
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+h4 { font-size: var(--font-size-h4); }
+h5 { font-size: var(--font-size-h5); }
+
+p { margin: 0 0 var(--space-2); }
+p:last-child { margin-bottom: 0; }
+ul, ol { margin-bottom: var(--space-2); padding-left: var(--space-3); }
+a { color: var(--primary); text-decoration: none; transition: var(--transition-fast); }
+a:hover { color: var(--primary-dark); text-decoration: underline; }
+img { max-width: 100%; height: auto; display: block; }
+small, .text-sm { font-size: var(--font-size-sm); }
+
+/* Skip link */
+.skip-link{
+  position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;
+  z-index: 9999;
+}
+.skip-link:focus{
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1rem;
+  background: #000;
+  color: #fff;
+  border-radius: var(--radius);
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+}
+
+/* ===============================================
+2. LEIAUTES RESPONSIVOS (ESPECIFICAÇÃO)
+===============================================
+*/
+
+/* 2.1 Grid 12 Colunas (Sistema Customizado) */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-3);
+}
+.col-span-full { grid-column: 1 / -1; }
+.col-span-1 { grid-column: span 1; }
+.col-span-2 { grid-column: span 2; }
+.col-span-3 { grid-column: span 3; }
+.col-span-4 { grid-column: span 4; }
+.col-span-5 { grid-column: span 5; }
+.col-span-6 { grid-column: span 6; }
+.col-span-7 { grid-column: span 7; }
+.col-span-8 { grid-column: span 8; }
+.col-span-9 { grid-column: span 9; }
+.col-span-10 { grid-column: span 10; }
+.col-span-11 { grid-column: span 11; }
+.col-span-12 { grid-column: span 12; }
+
+/* ===============================================
+3. NAVEGAÇÃO SOFISTICADA (ESPECIFICAÇÃO)
+===============================================
+*/
+.site-header{
+  border-bottom: 1px solid var(--border-color);
+  background: color-mix(in srgb, var(--bg) 95%, transparent); /* Fundo com transparência */
+  backdrop-filter: blur(5px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+.site-header .container{
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.logo{
+  height: 48px;
+  width: auto;
+  z-index: 10;
+}
+.logo-link:focus { outline: none; }
+.logo-link:focus .logo {
+  outline: 3px solid #ffd54f;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* 3.1 Menu Hambúrguer (Toggle Button) */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-1);
+  z-index: 10;
+}
+.hamburger-icon {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  position: relative;
+  transition: background 0.15s ease-out;
+}
+.hamburger-icon::before,
+.hamburger-icon::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text);
+  position: absolute;
+  left: 0;
+  transition: transform 0.15s ease-out;
+}
+.hamburger-icon::before { top: -7px; }
+.hamburger-icon::after { bottom: -7px; }
+
+/* Estado "Aberto" do Hambúrguer */
+.nav-toggle[aria-expanded="true"] .hamburger-icon {
+  background: transparent;
+}
+.nav-toggle[aria-expanded="true"] .hamburger-icon::before {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .hamburger-icon::after {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* 3.2 Lista de Navegação */
+.nav-list{
+  list-style: none;
+  display: flex;
+  gap: var(--space-1);
+  flex-wrap: wrap;
+  align-items: center;
+}
+.nav-list a{
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  border-radius: var(--radius);
+  position: relative;
+}
+.nav-list a:hover {
+  background-color: var(--surface);
+  color: var(--primary-dark);
+  text-decoration: none;
+}
+.nav-list a[aria-current="page"]{
+  color: var(--primary);
+  font-weight: 700;
+}
+.nav-list a[aria-current="page"]::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0.75rem;
+  right: 0.75rem;
+  height: 3px;
+  background-color: var(--primary);
+  border-radius: 2px;
+}
+
+/* 3.3 Submenu Dropdown */
+.dropdown {
+  position: relative;
+}
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: var(--bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius);
+  padding: var(--space-1);
+  z-index: 101;
+  list-style: none;
+}
+.submenu a {
+  display: block;
+  width: 100%;
+  font-weight: 400;
+  color: var(--text); /* Garante cor no modo escuro */
+}
+.submenu a::after {
+  display: none;
+}
+.dropdown:hover > .submenu,
+.dropdown:focus-within > .submenu {
+  display: block;
+}
+
+
+/* ===============================================
+4. COMPONENTES DE INTERFACE (ESPECIFICAÇÃO)
+===============================================
+*/
+
+/* 4.1 Botões */
+.btn{
+  display: inline-block;
+  padding: .6rem 1.2rem;
+  border-radius: var(--radius);
+  background: var(--primary);
+  color: #fff; /* Texto do botão primário é sempre branco */
+  text-decoration: none;
+  border: 1px solid var(--primary);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  transition: var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+.btn:hover{
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+.btn.outline{
+  background: transparent;
+  color: var(--primary);
+  border-color: var(--primary); /* Garante borda no modo escuro */
+}
+.btn.outline:hover{
+  background: var(--primary);
+  color: #fff;
+}
+.btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+.btn:disabled, .btn.disabled {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: #fff;
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* 4.2 Formulários */
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+fieldset{
+  border: 1px solid var(--border-color);
+  padding: var(--space-3);
+  margin: 0;
+  border-radius: var(--radius);
+  background: var(--surface);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+}
+legend{
+  font-weight: 700;
+  font-size: var(--font-size-h4);
+  padding: 0 0.5rem;
+  margin-left: -0.5rem;
+  color: var(--text); /* Garante cor no modo escuro */
+}
+label{
+  display: block;
+  font-weight: 600;
+  margin-bottom: .25rem;
+  color: var(--text); /* Garante cor no modo escuro */
+}
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+label.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-weight: 400;
+  margin: 0;
+}
+label.checkbox-label input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="search"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: .75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: var(--font-size-base);
+  font-family: inherit;
+  background: var(--bg);
+  color: var(--text); /* Cor do texto dentro do input */
+  transition: var(--transition-fast);
+}
+/* Corrigindo o Date Picker para modo escuro */
+input[type="date"] {
+  color-scheme: dark;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(var(--is-dark, 0));
+}
+
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent);
+}
+input:invalid:focus,
+textarea:invalid:focus {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--danger) 20%, transparent);
+}
+.form-actions{
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+.obs{
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+}
+
+/* 4.3 Componentes de Feedback (Alerts) */
+.alert {
+  padding: var(--space-2);
+  margin-bottom: var(--space-2);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  font-weight: 500;
+}
+.alert-info {
+  color: var(--info-text);
+  background-color: var(--info-bg);
+  border-color: var(--info-border);
+}
+.alert-success {
+  color: var(--success-text);
+  background-color: var(--success-bg);
+  border-color: var(--success-border);
+}
+.alert-danger {
+  color: var(--danger-text);
+  background-color: var(--danger-bg);
+  border-color: var(--danger-border);
+}
+.alert-warning {
+  color: var(--warning-text);
+  background-color: var(--warning-bg);
+  border-color: var(--warning-border);
+}
+
+/* 4.4 Componentes de Feedback (Modals) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space-2);
+}
+.modal {
+  background: var(--bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--border-color);
+}
+.modal-header h2 {
+  margin: 0;
+  font-size: var(--font-size-h4);
+}
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text);
+  opacity: 0.5;
+  cursor: pointer;
+}
+.modal-close-btn:hover {
+  opacity: 1;
+}
+.modal-body {
+  padding: var(--space-3);
+  overflow-y: auto;
+}
+.modal-footer {
+  padding: var(--space-2) var(--space-3);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-1);
+}
+
+/* 4.5 Badges e Tags */
+.badge {
+  display: inline-block;
+  padding: 0.35em 0.65em;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.375rem;
+  color: #fff; /* Texto do badge é sempre branco */
+}
+.badge-primary {
+  background-color: var(--primary);
+}
+.badge-secondary {
+  background-color: var(--secondary);
+}
+.badge-success {
+  background-color: var(--success);
+}
+.badge-danger {
+  background-color: var(--danger);
+}
+
+
+/* Outros Estilos (Hero, Projetos, Footer) */
+.hero{
+  padding: var(--space-3) 0;
+}
+.hero img{
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  margin-top: var(--space-3);
+  box-shadow: var(--shadow-md);
+  object-fit: cover;
+  max-height: 400px;
+}
+.hero-texto p {
+  font-size: var(--font-size-lg);
+  color: var(--text-muted);
+}
+.hero-botoes {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: var(--space-3);
+}
+
+/* Página de Projetos */
+.lista-projetos{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+.projeto{
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  transition: var(--transition-fast);
+}
+.projeto:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+.projeto img{
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border-color);
+}
+.projeto-texto {
+  padding: var(--space-3);
+  flex-grow: 1;
+}
+.projeto-texto h2 { font-size: var(--font-size-h4); }
+.projeto-texto p { margin-bottom: var(--space-1); }
+.projeto-links {
+  padding: 0 var(--space-3) var(--space-3);
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Filtros (Aside) */
+.filtros {
+  background: var(--surface);
+  padding: var(--space-3);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+}
+.filtros h3 {
+  margin-bottom: var(--space-3);
+}
+.filtros form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.filtros button {
+  width: 100%;
+}
+
+
+/* Footer */
+.site-footer{
+  border-top: 1px solid var(--border-color);
+  padding: var(--space-6) 0;
+  margin-top: var(--space-6);
+  background: var(--text);
+  color: #f1f1f1;
+}
+.site-footer .container{
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.site-footer a{
+  color: #fff;
+  text-decoration: underline;
+}
+.site-footer a:hover {
+  text-decoration: none;
+}
+.site-footer address {
+  font-style: normal;
+  line-height: 1.7;
+}
+.social-list{
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: var(--space-2);
+  font-size: 1.1rem;
+}
+.social-list a {
+  text-decoration: none;
+  font-weight: 600;
+}
+.copyright{
+  width: 100%;
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  margin-top: var(--space-4);
+  border-top: 1px solid #444; /* Borda escura no footer */
+  padding-top: var(--space-3);
+}
+
+/* Acessibilidade: Estados de foco visíveis */
+a:focus, 
+button:focus, 
+input:focus, 
+select:focus, 
+textarea:focus,
+.skip-link:focus,
+.nav-toggle:focus {
+  outline: 3px solid #ffd54f; /* Amarelo bem visível */
+  outline-offset: 2px;
+  box-shadow: none;
+}
+:focus {
+  outline: none; 
+}
+
+/* ===============================================
+5. BREAKPOINTS RESPONSIVOS (ESPECIFICAÇÃO)
+===============================================
+*/
+
+/* Breakpoint 1: Small Mobile */
+@media (max-width: 480px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  .form-actions .btn {
+    width: 100%;
+  }
+}
+
+/* Breakpoint 2: Tablet Portrait */
+@media (min-width: 700px){
+  .container{
+    padding: var(--space-3);
+  }
+  
+  .lista-projetos{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #cadastroForm fieldset {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+  .full-width {
+    grid-column: 1 / -1;
+  }
+  .checkbox-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+}
+
+/* Breakpoint 3: Tablet Landscape */
+@media (min-width: 768px){
+  .hero{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+    align-items: center;
+    padding: var(--space-6) 0;
+  }
+  .hero img {
+    margin-top: 0;
+    max-height: none;
+  }
+  .hero h1 { font-size: 3rem; }
+  
+  .col-md-span-4 { grid-column: span 4; }
+  .col-md-span-6 { grid-column: span 6; }
+  .col-md-span-8 { grid-column: span 8; }
+}
+
+/* Breakpoint 4: Desktop (Mudança do Menu) */
+@media (max-width: 991.98px) {
+  .nav-toggle {
+    display: block;
+  }
+  .nav-list {
+    display: none;
+    position: absolute;
+    top: 73px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: var(--bg);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-2);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+  }
+  .nav-list.is-open {
+    display: flex;
+  }
+  .nav-list li {
+    width: 100%;
+  }
+  .nav-list a {
+    display: block;
+    width: 100%;
+  }
+  .dropdown {
+    width: 100%;
+  }
+  .dropdown > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .dropdown > a::after {
+    content: '▼';
+    font-size: 0.6rem;
+  }
+  .submenu {
+    position: static;
+    display: block;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+    padding: 0 0 0 var(--space-2);
+    background: var(--surface);
+  }
+  .dropdown:hover > .submenu {
+    display: block;
+  }
+}
+
+/* Breakpoint 5: Large Desktop */
+@media (min-width: 1200px) {
+  .layout-projetos {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: var(--space-5);
+  }
+  .projetos-conteudo {
+    grid-column: 1 / 2;
+  }
+  .filtros {
+    grid-column: 2 / 3;
+    align-self: start;
+    position: sticky;
+    top: 100px;
+  }
+  
+  .col-lg-span-4 { grid-column: span 4; }
+  .col-lg-span-6 { grid-column: span 6; }
+  .col-lg-span-8 { grid-column: span 8; }
+}
+
+
+/* ===============================================
+6. MODO ESCURO (DARK MODE)
+===============================================
+*/
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Flag para o seletor de data */
+    --is-dark: 1;
+
+    /* Cores de Texto e Fundo (Dark) */
+    --text: #e1e3e5;
+    --text-muted: #adb5bd;
+    --bg: #121212;
+    --surface: #1e1e1e;
+    --border-color: #3e3e3e;
+    
+    /* Cores Primárias (Dark) */
+    --primary: #50a6d8;
+    --primary-dark: #74bde8;
+    
+    /* Cores de Alerta (Dark) */
+    --info-text: #9eeafc;
+    --info-bg: #0d3c4a;
+    --info-border: #1a7c98;
+
+    --success-text: #a3d9b1;
+    --success-bg: #183e25;
+    --success-border: #2a6a3e;
+
+    --danger-text: #f5c6cb;
+    --danger-bg: #491f24;
+    --danger-border: #8e3c46;
+
+    --warning-text: #ffe08a;
+    --warning-bg: #4d3c0c;
+    --warning-border: #997a1f;
+
+    /* Sombras (Dark) */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.25);
+    --shadow-md: 0 4px 10px rgba(0,0,0,0.3);
+  }
+  
+  /* Footer (Dark) */
+  .site-footer{
+    background: #000; /* Preto puro para o footer */
+    color: var(--text-muted);
+  }
+  .site-footer a {
+    color: #fff;
+  }
+  .copyright {
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+  }
+
+  /* Imagens com brilho reduzido no modo escuro */
+  img {
+    opacity: 0.9;
+    transition: opacity 0.2s;
+  }
+  img:hover {
+    opacity: 1;
+  }
+}

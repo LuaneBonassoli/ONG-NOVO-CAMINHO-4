@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projetos — ONG Novo Caminho</title>
+  <meta name="description" content="Projetos da ONG Novo Caminho: reforço escolar, capacitação profissional e apoio social a famílias carentes." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="index.html" class="logo-link" aria-label="Página inicial da ONG Novo Caminho">
+        <img src="assets/img/logo.webp" alt="ONG Novo Caminho" class="logo" />
+      </a>
+      
+      <nav role="navigation" aria-label="Menu principal">
+        <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navList">
+          <span class="hamburger-icon" aria-hidden="true"></span>
+        </button>
+        
+        <ul class="nav-list" id="navList">
+          <li><a href="index.html">Início</a></li>
+          
+          <li class="dropdown">
+            <a href="projetos.html" aria-current="page" aria-haspopup="true" aria-expanded="false">Projetos</a>
+            <ul class="submenu" aria-label="Submenu Projetos">
+              <li><a href="projetos.html#proj1-title">Raízes do Amanhã</a></li>
+              <li><a href="projetos.html#proj2-title">Capacita Família</a></li>
+              <li><a href="projetos.html#proj3-title">Acolher Legal</a></li>
+            </ul>
+          </li>
+          
+          <li><a href="cadastro.html">Cadastro</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </nav>
+      </div>
+  </header>
+  <main id="main" class="container" role="main">
+    <article class="layout-projetos" aria-labelledby="projetos-title">
+      
+      <div class="projetos-conteudo">
+        <h1 id="projetos-title">Nossos Projetos de Transformação Social</h1>
+        <p>Acreditamos que a educação e a autonomia são o novo caminho. Conheça nossos programas em execução:</p>
+
+        <section class="lista-projetos" aria-label="Lista de projetos ativos">
+          
+          <div class="projeto" role="article" aria-labelledby="proj1-title">
+            <img src="assets/img/projetos/proj1.jpg" alt="Crianças em atividade de reforço escolar" loading="lazy" />
+            <div class="projeto-texto">
+              <h2 id="proj1-title">Raízes do Amanhã: Reforço e Cestas</h2>
+              <p>Programa focado em garantir a permanência escolar. Oferece reforço multidisciplinar (matemática, português), oficinas de arte, e acompanha o desenvolvimento nutricional, garantindo **cestas básicas** mensais para a família.</p>
+              
+              <p><strong>Status:</strong> <span class="badge badge-success">Em execução</span></p>
+              <p><strong>Localidade:</strong> Bairro Esperança</p>
+            </div>
+            <p class="projeto-links">
+              <a class="btn" href="cadastro.html">Quero ser voluntário</a> 
+              <a class="btn outline" href="#">Doar para este projeto</a>
+            </p>
+          </div>
+
+          <div class="projeto" role="article" aria-labelledby="proj2-title">
+            <img src="assets/img/projetos/proj2.jpg" alt="Curso de capacitação profissional em grupo" loading="lazy" />
+            <div class="projeto-texto">
+              <h2 id="proj2-title">Capacita Família: Autonomia e Renda</h2>
+              <p>Oferece cursos profissionalizantes de curta e média duração (ex: costura criativa, informática básica, culinária e empreendedorismo). O objetivo é promover a **autonomia financeira** dos adultos e jovens da família.</p>
+              
+              <p><strong>Status:</strong> <span class="badge badge-primary">Inscrições abertas</span></p>
+              <p><strong>Localidade:</strong> Centro Comunitário</p>
+            </div>
+            <p class="projeto-links">
+              <a class="btn" href="cadastro.html">Inscrever uma família</a>
+            </p>
+          </div>
+          
+          <div class="projeto" role="article" aria-labelledby="proj3-title">
+            <img src="assets/img/projetos/proj3.jpg" alt="Profissional dando orientação jurídica" loading="lazy" />
+            <div class="projeto-texto">
+              <h2 id="proj3-title">Acolher Legal: Orientação Social</h2>
+              <p>Fornece apoio jurídico e social básico (documentação, acesso a programas governamentais, orientação familiar) através de uma rede de advogados e assistentes sociais voluntários. Foco em direitos e dignidade.</p>
+              
+              <p><strong>Status:</strong> <span class="badge badge-danger">Precisa de voluntários!</span></p>
+              <p><strong>Localidade:</strong> Sede da ONG</p>
+            </div>
+            <p class="projeto-links">
+              <a class="btn outline" href="cadastro.html">Patrocine este projeto</a>
+            </p>
+          </div>
+          
+        </section>
+      </div>
+
+      <aside aria-labelledby="filtros-title" class="filtros">
+        <h3 id="filtros-title">Filtrar por</h3>
+        <form method="get" action="#" aria-label="Filtro de projetos">
+          <label for="categoria">Categoria</label>
+          <select name="categoria" id="categoria">
+            <option value="">Todas</option>
+            <option>Educação</option>
+            <option>Capacitação e Renda</option>
+            <option>Assistência Social</option>
+          </select>
+          
+          <label for="localidade">Localidade</label>
+          <input type="search" name="localidade" id="localidade" placeholder="Cidade, Bairro" />
+          
+          <button class="btn" type="submit">Filtrar</button>
+        </form>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <address id="contato">
+        <strong>ONG Novo Caminho</strong><br />
+        Endereço: Rua alegria — Cidade esperança — Felicidade<br />
+        Telefone: <a href="tel:+550000000000">(+55) 00 00000-0000</a><br />
+        E-mail: <a href="mailto:contato@novocaminho.org">contato@novocaminho.org</a>
+      </address>
+
+      <nav aria-label="Redes sociais">
+        <ul class="social-list">
+          <li><a href="#" aria-label="Instagram">Instagram</a></li>
+          <li><a href="#" aria-label="Facebook">Facebook</a></li>
+        </ul>
+      </nav>
+
+      <p class="copyright">© <span id="ano"></span> ONG Novo Caminho — Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  
+  <script>
+    // Script do ano no rodapé
+    const anoEl = document.getElementById('ano');
+    if(anoEl) {
+      anoEl.textContent = new Date().getFullYear();
+    }
+    
+    // --- NOVO: Script do Menu Hambúrguer ---
+    const navToggle = document.querySelector('.nav-toggle');
+    const navList = document.getElementById('navList');
+    if (navToggle && navList) {
+        navToggle.addEventListener('click', () => {
+            const isOpen = navList.classList.toggle('is-open');
+            navToggle.setAttribute('aria-expanded', isOpen);
+            navToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+        });
+    }
+  </script>
+</body>
+</html>
